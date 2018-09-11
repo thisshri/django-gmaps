@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{%block content%}
+    <div class="testing">
+        {% for tf in transportInfo %}
+
+        <div class="trucks" tabindex="-1" role="dialog">
+          <div class="modal-dialkog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <P class="modal-title">Name: {{ tf.driver_first_name }} </p>
+                <p class="modal-title">Contact: {{ tf.driver_contact }} </p>
+                <div class="modal-title">Vehicle Number: {{ tf.truck_number }} <div align="right">
+                    Speed : {{ tf.speed }}
+
+                </div> </div>
+
+              </div>
+              <div class="modal-body">
+
+
+                  <p>current location {{ tf.current_location_lat}}</p>
+                <p>current location {{ tf.current_location_lon}}</p>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+
+    </div>
+
+
+        <div id="map"></div>
+
+    <script>
+  function initMap() {
+    var india = {lat: 20.5937, lng: 78.9629}
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 4,
+      center: india
+    });
+
+
+    {% for i in transportInfo %}
+        var marker = new google.maps.Marker({
+          position: {lat: {{i.current_location_lat}}, lng: {{i.current_location_lon}}},
+          map: map
+        });
+
+    {% endfor %}
+
+  }
+
+
+
+
+
+</script>
+
+        <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCA4gqLOr0STQXhGkf5SOgMUZOl7WnIvEA&callback=initMap">
+        </script>
+{%endblock content%}

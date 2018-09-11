@@ -1,0 +1,76 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+  <head>
+
+      <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+
+
+
+
+    <style>
+       #map {
+        height: 600px;
+        width: 100%;
+        position: absolute;
+        top: 100px; left: 310px; z-index: 0;
+
+       }
+       .testing {
+           position: relative;
+           overflow-y: scroll
+            width: 100px;
+            height: 600px;
+            overflow-y: scroll;
+            overflow-x:hidden;
+        }
+        .trucks {
+            position: relative;
+            top: 20px;
+            left: 5px;
+            top: 20px;
+            width: 300px
+        }
+
+
+    </style>
+
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+
+  </head>
+  <body>
+
+
+        <!-- A grey horizontal navbar that becomes vertical on small screens -->
+        <nav class="navbar navbar-expand-sm bg-light">
+
+          <!-- Links -->
+          <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'home' %}">/The Dashboard</a>
+              </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'addInfo' %}">/Add Information for demonstration</a>
+            </li>
+
+          </ul>
+
+</nav>
+
+        {%block content%}
+        {%endblock content%}
+    </body>
+</html>
